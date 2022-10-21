@@ -21,9 +21,13 @@ public class legendary-memoryApplication extends Application<legendary-memoryCon
     }
 
     @Override
-    public void run(final legendary-memoryConfiguration configuration,
-                    final Environment environment) {
-        // TODO: implement application
+    public void run(legendary-memoryConfiguration configuration,
+                    Environment environment) {
+        final HelloWorldResource resource = new HelloWorldResource(
+            configuration.getTemplate(),
+            configuration.getDefaultName()
+        );
+        environment.jersey().register(resource);
     }
 
 }
